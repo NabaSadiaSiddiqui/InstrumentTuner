@@ -1,0 +1,11 @@
+body, html {
+	background-color: black;
+}
+
+#tuner {
+	background-color: black;
+	/* horizontally center canvas */
+	height: 100%;
+	position: absolute;
+	margin-left: 15%;
+}
