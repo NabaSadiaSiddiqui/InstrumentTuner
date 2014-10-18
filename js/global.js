@@ -1,1 +1,10 @@
 var context;
+var c_x;
+var c_y;
+var timerId;
+var tuner;
+var dial;
+var scale;
+var pitch;
+var freq;
+var note;

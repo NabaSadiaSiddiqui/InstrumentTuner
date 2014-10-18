@@ -12,17 +12,17 @@ function Pitch(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 	this.posY = 0.4 * bodyLenY + bodyPosY;
 	// size of each of the portions of the dial for flat and sharp pitch
 	this.boxLenX = bodyLenX/2;
-	this.boxLenY = bodyLenY/2;
-	
+	this.boxLenY = bodyLenY/2;	
+	// x position of both pitch types
+	var textWidthFlat = context.measureText(this.flat).width;
+	var textWidthSharp = context.measureText(this.sharp).width;
+	this.posXflat = (this.boxLenX-textWidthFlat)/2 + this.bodyPosX;
+	this.posXsharp = (this.boxLenX-textWidthSharp)/2 + this.bodyPosX + this.boxLenX;
+
 	this.draw = function(pitch) {
 		context.beginPath();
 		context.font = 'italic 50pt Calibri';
 		context.fillStyle = 'grey';
-		// x position of both pitch types
-		var textWidthFlat = context.measureText(this.flat).width;
-		var textWidthSharp = context.measureText(this.sharp).width;
-		this.posXflat = (this.boxLenX-textWidthFlat)/2 + this.bodyPosX;
-		this.posXsharp = (this.boxLenX-textWidthSharp)/2 + this.bodyPosX + this.boxLenX;
 	
 		if(pitch == false) {
 			context.fillText(this.flat, this.posXflat, this.posY);
@@ -31,7 +31,7 @@ function Pitch(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		} else {
 			if(pitch == 'flat') {
 				context.fillText(this.sharp, this.posXsharp, this.posY);
-				context.fillStyle = 'red';
+				context.fillStyle = 'green';
 				context.fillText(this.flat, this.posXflat, this.posY);
 				context.closePath();
 			} else {

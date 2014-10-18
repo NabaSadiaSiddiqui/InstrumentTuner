@@ -15,12 +15,12 @@ function Scale(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		context.beginPath();
 		for(var i=0; i<=numNeedles; i++) {
 			var y2;
+			context.lineWidth = 2;
 			if(i % 5 == 0 && i !=0 && i!=numNeedles) {
 				y2 = (posY-len)*0.9;
 				context.lineWidth = 5;
 			} else {
-				y2 = posY - len;
-				context.lineWidth = 2;
+				y2 = posY-len;
 			}
 			context.lineCap = 'round';
 			context.moveTo(posX, posY);
@@ -31,8 +31,5 @@ function Scale(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		}
 		context.closePath();
 	}
-	
-	//drawPitch(context, bodyPosX, bodyLenX, bodyPosY, bodyLenY, false);
-	//drawFreq(context, bodyPosX, bodyLenX, bodyPosY, bodyLenY);
 }
 

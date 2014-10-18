@@ -30,7 +30,7 @@ function Note(bodyPosX, bodyLenX, bodyPosY, bodyLenY, note) {
 		context.stroke();
 		context.fill();
 		context.closePath();
-	}();
+	};
 
 	/*
 	 Draw the note alphabet itself
@@ -38,6 +38,7 @@ function Note(bodyPosX, bodyLenX, bodyPosY, bodyLenY, note) {
 	var posX = noteX/2 + startX;
 	var posY = noteY/2 + startY;
 	this.draw = function(note) {
+		this.container();
 		var x = posX;
 		var y = posY;
 		
