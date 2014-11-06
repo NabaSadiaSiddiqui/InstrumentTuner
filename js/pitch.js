@@ -16,8 +16,8 @@ function Pitch(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 	// x position of both pitch types
 	var textWidthFlat = context.measureText(this.flat).width;
 	var textWidthSharp = context.measureText(this.sharp).width;
-	this.posXflat = (this.boxLenX-textWidthFlat)/2 + this.bodyPosX;
-	this.posXsharp = (this.boxLenX-textWidthSharp)/2 + this.bodyPosX + this.boxLenX;
+	this.posXflat = (this.boxLenX-textWidthFlat)/2 + this.bodyPosX/2;
+	this.posXsharp = (this.boxLenX-textWidthSharp)/2 + this.bodyPosX/2 + this.boxLenX;
 
 	this.draw = function(pitch) {
 		context.beginPath();

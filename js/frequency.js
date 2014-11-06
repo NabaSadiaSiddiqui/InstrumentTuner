@@ -2,6 +2,8 @@
 function Freq(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 	this.posYstart = bodyPosY;
 	this.posYend = bodyPosY + bodyLenY;
+	this.startX = bodyPosX;
+	this.endX = bodyPosX + bodyLenX;
 	// POSITION OF THE NEEDLE
 	this.posX = bodyPosX + bodyLenX/2;
 
@@ -20,5 +22,9 @@ function Freq(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		context.stroke();
 		context.closePath();
 		context.restore();
+	}
+
+	this.updatePos = function(pos) {
+		this.posX = this.startX + ((this.endX - this.startX) * pos);
 	}
 }

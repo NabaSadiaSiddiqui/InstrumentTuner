@@ -37,17 +37,25 @@ function Note(bodyPosX, bodyLenX, bodyPosY, bodyLenY, note) {
 	*/
 	var posX = noteX/2 + startX;
 	var posY = noteY/2 + startY;
-	this.draw = function(note) {
+	this.draw = function(note, octave, accidental) {
 		this.container();
 		var x = posX;
 		var y = posY;
 		
+		context.save();
 		context.beginPath();
-		context.font = '200pt Calibri';
-		context.textAlign = 'center';
+		context.font = '250pt Calibri';
+		context.textAlign = 'right';
 		context.textBaseline = 'middle';
 		context.fillStyle = 'blue';
-		context.fillText(note, x, y);
+		context.fillText(note, x+50, y);
+		context.font = '100pt Calibri';
+		context.textAlign = 'right';
+		context.textBaseline = 'bottom';
+		context.fillText(accidental, x+150, y);
+		context.textBaseline = 'top';
+		context.fillText(octave, x+150, y);
 		context.closePath();
+		context.restore();
 	}
 }

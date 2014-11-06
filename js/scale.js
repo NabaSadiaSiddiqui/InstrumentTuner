@@ -12,16 +12,21 @@ function Scale(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		var len = this.len;
 		var posX = this.posX;
 		var posY = this.posY;
+		context.save();
 		context.beginPath();
 		for(var i=0; i<=numNeedles; i++) {
 			var y2;
-			context.lineWidth = 2;
-			if(i % 5 == 0 && i !=0 && i!=numNeedles) {
+			
+			context.lineWidth = 1;
+			if(i%5 == 0) {
 				y2 = (posY-len)*0.9;
-				context.lineWidth = 5;
+				if(i==10) {
+					context.lineWidth = 2;
+				}
 			} else {
 				y2 = posY-len;
 			}
+
 			context.lineCap = 'round';
 			context.moveTo(posX, posY);
 			context.lineTo(posX, y2);
@@ -30,6 +35,7 @@ function Scale(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 			posX += dist;
 		}
 		context.closePath();
+		context.restore();
 	}
 }
 

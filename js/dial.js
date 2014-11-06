@@ -7,6 +7,7 @@ function Dial(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 	this.radius = 30;
 
 	this.draw = function() {
+		context.save();
 		context.beginPath();
 		this.drawHelper();
 		context.fillStyle = '#FFFFCC';
@@ -15,6 +16,7 @@ function Dial(bodyPosX, bodyLenX, bodyPosY, bodyLenY) {
 		context.stroke();
 		context.fill();
 		context.closePath();
+		context.restore();
 	}
 
 	this.drawHelper = function() {
